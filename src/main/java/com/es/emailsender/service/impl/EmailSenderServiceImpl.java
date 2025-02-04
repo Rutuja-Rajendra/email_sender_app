@@ -31,79 +31,79 @@ public class EmailSenderServiceImpl implements EmailSenderService {
 	private org.slf4j.Logger logger = LoggerFactory.getLogger(EmailSenderServiceImpl.class);
 
 
-//	@Override
-//	public void sendEmail(String to, String subject, String message) {
-//		
-//		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-//		simpleMailMessage.setFrom("rutuvrb@gmail.com");
-//		simpleMailMessage.setTo(to);
-//		simpleMailMessage.setSubject(subject);
-//		simpleMailMessage.setText(message);
-//		
-//		javaMailSender.send(simpleMailMessage);
-//		
-//		logger.info("Email has been send!");
-//	}
+	@Override
+	public void sendEmail(String to, String subject, String message) {
+		
+		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+		simpleMailMessage.setFrom("rutuvrb@gmail.com");
+		simpleMailMessage.setTo(to);
+		simpleMailMessage.setSubject(subject);
+		simpleMailMessage.setText(message);
+		
+		javaMailSender.send(simpleMailMessage);
+		
+		logger.info("Email has been send!");
+	}
 
-//	@Override
-//	public void sendEmail(String[] to, String subject, String message) {
-//		
-//		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-//		simpleMailMessage.setFrom("rutuvrb@gmail.com");
-//		simpleMailMessage.setTo(to);
-//		simpleMailMessage.setSubject(subject);
-//		simpleMailMessage.setText(message);
-//		
-//		javaMailSender.send(simpleMailMessage);
-//		
-//		logger.info("Email has been send to all!");
-//	}
+	@Override
+	public void sendEmail(String[] to, String subject, String message) {
+		
+		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+		simpleMailMessage.setFrom("rutuvrb@gmail.com");
+		simpleMailMessage.setTo(to);
+		simpleMailMessage.setSubject(subject);
+		simpleMailMessage.setText(message);
+		
+		javaMailSender.send(simpleMailMessage);
+		
+		logger.info("Email has been send to all!");
+	}
 
-//	@Override
-//	public void sendEmailWithHtml(String to, String subject, String htmlContent) {
-//		
-//		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-//		try {
-//			MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
-//			mimeMessageHelper.setFrom("rutuvrb@gmail.com");
-//			mimeMessageHelper.setTo(to);
-//			mimeMessageHelper.setSubject(subject);
-//			mimeMessageHelper.setText(htmlContent, true);
-//			
-//			javaMailSender.send(mimeMessage);
-//			
-//			logger.info("Email with HTML contenet has been send!");
-//		} catch (MessagingException e) {
-//			e.printStackTrace();
-//		}
-//
-//	}
+	@Override
+	public void sendEmailWithHtml(String to, String subject, String htmlContent) {
+		
+		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+		try {
+			MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+			mimeMessageHelper.setFrom("rutuvrb@gmail.com");
+			mimeMessageHelper.setTo(to);
+			mimeMessageHelper.setSubject(subject);
+			mimeMessageHelper.setText(htmlContent, true);
+			
+			javaMailSender.send(mimeMessage);
+			
+			logger.info("Email with HTML contenet has been send!");
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
 
-//	@Override
-//	public void sendEmailWithFile(String to, String subject, String message, File file) {
-//		
-//		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-//		
-//		MimeMessageHelper mimeMessageHelper;
-//		try {
-//			mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
-//			
-//			mimeMessageHelper.setFrom("rutuvrb@gmail.com");
-//			mimeMessageHelper.setTo(to);
-//			mimeMessageHelper.setSubject(subject);
-//			mimeMessageHelper.setText(message);
-//			
-//			FileSystemResource fileSystemResource = new FileSystemResource(file);
-//			mimeMessageHelper.addAttachment(fileSystemResource.getFilename(), file);
-//			
-//			javaMailSender.send(mimeMessage);
-//			logger.info("Email with file has been send!");
-//		} catch (MessagingException e) {
-//			
-//			e.printStackTrace();
-//		}
-//		
-//	}
+	}
+
+	@Override
+	public void sendEmailWithFile(String to, String subject, String message, File file) {
+		
+		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+		
+		MimeMessageHelper mimeMessageHelper;
+		try {
+			mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
+			
+			mimeMessageHelper.setFrom("rutuvrb@gmail.com");
+			mimeMessageHelper.setTo(to);
+			mimeMessageHelper.setSubject(subject);
+			mimeMessageHelper.setText(message);
+			
+			FileSystemResource fileSystemResource = new FileSystemResource(file);
+			mimeMessageHelper.addAttachment(fileSystemResource.getFilename(), file);
+			
+			javaMailSender.send(mimeMessage);
+			logger.info("Email with file has been send!");
+		} catch (MessagingException e) {
+			
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	
